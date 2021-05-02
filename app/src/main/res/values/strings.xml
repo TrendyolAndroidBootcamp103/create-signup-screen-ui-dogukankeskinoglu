@@ -1,9 +1,22 @@
 <resources>
     <string name="app_name">Succulent Shop</string>
-    <string name="email_or_username">Email or Username</string>
-    <string name="password">Password</string>
-    <string name="log_in">Log in</string>
-    <string name="create_an_account">Create an account</string>
-    <string name="this_field_is_required">This field is required.</string>
-    <string name="identifier_is_too_short">Identifier is too short.</string>
+    <string name="emailHint">Email</string>
+    <string name="usernameHint">Username</string>
+    <string name="passwordHint">Password</string>
+    <string name="log_in">Login</string>
+    <string name="signupTitle">Sign up</string>
+    <string name="alreadyHaveAccountButton">Already Have an Account</string>
+    <string name="createAccountButton">Create an account</string>
+    <string name="emailEmptyError">Email is required.</string>
+    <string name="emailContainError">Email is must contain @ and .</string>
+    <string name="emailShortError">Email is too short.</string>
+    <string name="emailLongError">Email is too long.</string>
+    <string name="usernameEmptyError">Username is required.</string>
+    <string name="usernameContainError">Username can only include a–z, 0-9 and _ characters.</string>
+    <string name="usernameShortError">Username is too short.</string>
+    <string name="usernameLongError">Username is too long.</string>
+    <string name="passwordEmptyError">Password is required.</string>
+    <string name="passwordContainError">Password must contain one digit, one uppercase letter, one lowercase letter and one special character.</string>
+    <string name="passwordShortError">Password is too short.</string>
+    <string name="passwordLongError">Password is too long.</string>
 </resources>

@@ -1,14 +1,18 @@
-package school.cactus.succulentshop
+package school.cactus.succulentshop.Activity
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputLayout
+import school.cactus.succulentshop.R
+import school.cactus.succulentshop.ValidatorPackage.UsernameValidator
+import school.cactus.succulentshop.ValidatorPackage.PasswordValidator
 import school.cactus.succulentshop.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
 
-    private val identifierValidator = IdentifierValidator()
+    private val identifierValidator = UsernameValidator()
     private val passwordValidator = PasswordValidator()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,11 +27,14 @@ class LoginActivity : AppCompatActivity() {
                 passwordInputLayout.validate()
                 identifierInputLayout.validate()
             }
+            createAccountButton.setOnClickListener{
+                navigateToSignupActivity()
+            }
         }
     }
 
     private fun TextInputLayout.validate() {
-        val errorMessage = validator().validate(editText!!.text.toString())
+        val errorMessage = validator().validateLogin(editText!!.text.toString())
         error = errorMessage?.resolveAsString()
         isErrorEnabled = errorMessage != null
     }
@@ -38,5 +45,10 @@ class LoginActivity : AppCompatActivity() {
         binding.identifierInputLayout -> identifierValidator
         binding.passwordInputLayout -> passwordValidator
         else -> throw IllegalArgumentException("Cannot find any validator for the given TextInputLayout")
+    }
+
+    private fun navigateToSignupActivity(){
+        val intent=Intent(this, SignupActivity::class.java)
+        startActivity(intent)
     }
 }
